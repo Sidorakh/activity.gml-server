@@ -30,7 +30,7 @@ Setup (production)
 ```
  ./static
   |
-   - html5game
-   - index.html
+  |- html5game
+  |- index.html
 ```
 4. Start the server with `node ./server.js`
