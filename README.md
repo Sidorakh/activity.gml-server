@@ -23,17 +23,23 @@ Setup (development)
 
 It's a convoluted process, but it allows your HTML5 game to act as if it's hosted on this server without having to export it every time
 
-Make sure to follow [Discord's official guide for testing an activity locally](https://discord.com/developers/docs/activities/development-guides#run-your-application-locally). 
+Make sure to follow [Discord's official guide for testing an activity locally](https://discord.com/developers/docs/activities/development-guides#run-your-application-locally) as well to get your activity set up properly on Discord. 
 
 Setup (production)
-1. Follow steps for development
-2. Change the `ENVIRONMENT` to `PROD`
-3. Build your GameMaker game as loose files, and place them in the `./static` folder. it should look like this
+1. Copy `example.env` to `.env`
+2. Set the following items in `.env`
+- `DISCORD_CLIENT_ID` should be set to your application ID
+- `DISCORD_CLIENT_SECRET` should be set to Discord's OAuth 2.0 secret
+- `PORT` shoudl be any free port that the application will listen on
+- `GAMEMAKER_URL` can be left alone, it's not used 
+- `ENVIRONMENT` should be set to `PROD`
+3. Build your GameMaker game for HTML5 as loose files, and place them in the `./static` folder. it should look like this
 ```
- server.js
- static
-  |
-  |- html5game
-  |- index.html
+ ├───.env
+ ├───example.env
+ ├───server.js
+ └───static
+     ├───html5game
+     └───index.html
 ```
 4. Start the server with `node ./server.js`
