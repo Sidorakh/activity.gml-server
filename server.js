@@ -1,11 +1,15 @@
 require('dotenv').config();
 
 
+const http = require('http');
 const express = require('express');
+const { WebSocket, WebSocketServer } = require('ws');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const app = express();
 
-app.listen(process.env.PORT);
+
+const app = express();
+const server = http.createServer(app)
+server.listen(process.env.PORT);
 
 app.use('/api*',express.json());
 
@@ -33,3 +37,8 @@ if (process.env.ENVIRONMENT == 'DEV') {
     // serve compiled game files
     app.use('*',express.static('./static'));
 }
+
+const wss = new WebSocketServer({ server });
+
+// add websocket server logic here
+// wss.on(...)
