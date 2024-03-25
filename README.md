@@ -5,6 +5,7 @@ Companion repository and the server component of [activity.gml](https://github.c
 Prerequisites: 
 - Node.JS v20.9.0 (most recent versions should work)
 - NPM v10.2.5
+- `cloudflared` for local development
 
 Setup (development)
 
@@ -20,15 +21,17 @@ Setup (development)
 4. Run `npm i` in the repository's folder
 5. Run the application with `node ./server.js`
 
-It's a bit convoluted, but using this allows you to run the server component and a GameMaker game locally without having to deal with recompiling your GameMaker game every time, instead just hitting play in the IDE
+It's a convoluted process, but it allows your HTML5 game to act as if it's hosted on this server without having to export it every time
 
+Make sure to follow [Discord's official guide for testing an activity locally](https://discord.com/developers/docs/activities/development-guides#run-your-application-locally). 
 
 Setup (production)
 1. Follow steps for development
 2. Change the `ENVIRONMENT` to `PROD`
 3. Build your GameMaker game as loose files, and place them in the `./static` folder. it should look like this
 ```
- ./static
+ server.js
+ static
   |
   |- html5game
   |- index.html
